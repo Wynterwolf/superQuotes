@@ -1,3 +1,4 @@
 class Episode < ApplicationRecord
-    belongs_to :quote
+    has_many :quotes
+    has_many :episodes, through: :quotes
 end

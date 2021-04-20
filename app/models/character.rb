@@ -1,4 +1,4 @@
 class Character < ApplicationRecord
-    has_many :episode
-    has_many :quote
+    has_many :quotes
+    has_many :episodes, through: :quotes
 end

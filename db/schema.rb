@@ -28,8 +28,14 @@ ActiveRecord::Schema.define(version: 2021_04_19_201347) do
 
   create_table "quotes", force: :cascade do |t|
     t.string "quote"
+    t.integer "character_id", null: false
+    t.integer "episode_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_quotes_on_character_id"
+    t.index ["episode_id"], name: "index_quotes_on_episode_id"
   end
 
+  add_foreign_key "quotes", "characters"
+  add_foreign_key "quotes", "episodes"
 end
